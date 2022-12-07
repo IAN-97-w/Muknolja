@@ -4,7 +4,7 @@
 <html class="h-100">
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>호텔 리스트</title>
 <meta charset="utf-8">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous"/>
@@ -87,6 +87,16 @@
 				<label for="location">지역</label>
 			</div>
 			<div class="col form-floating">
+				<select class="form-select" name="accept">
+					<option selected>1</option>
+					<option>2</option>
+					<option>3</option>
+					<option>4</option>
+					<option>5</option>
+				</select>
+				<label for="accept">인원</label>
+			</div>
+			<div class="col form-floating">
 				<input type="email" class="form-control" name="searchValue" placeholder="검색어를 입력하세요.">
 				<label for="searchValue">전체검색</label>
 			</div>
@@ -108,14 +118,18 @@
 			</div>
 		</form>
 		
+		<!-- 호텔 리스트 시작 -->
 		<div class="row row-cols-1 row-cols-sm-1 row-cols-lg-2 justify-content-start mt-4 mb-4">
-			<div class="col mb-4">
+			
+			<!-- 호텔 객체 시작 -->
+			<div class="hotel col mb-4">
 				<div class="card">
 					<div class="row">
-						<div class="col col-sm-auto col-md-auto" style="margin:0; padding-right:0">
+						<div class="col col-sm-auto col-md-auto" style="padding-right:0">
 							<img id="hotelImg" class="img-fluid rounded-start" src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMjEwMTlfMTYy%2FMDAxNjY2MTc4MTIyNzky.aXnPx9QwmchutQ7kHiWYYxGSZbZ9LRetTeUPgIaTJbkg.YEphq3iONv1O2z9kjPZo-tl_gUzLazQljGyLSvpxExAg.JPEG.abcd5z%2FIMG_2083.jpg&type=sc960_832" width="200px" height="300px" style="background: lightgray">
 						</div>
 						<div class="col mt-4 mb-4">
+							<input type="hidden" name="hotelId">
 							<h4 id="hotelName" class="card-title lh-1 fw-bold">롯데호텔</h4>
 							<i class="bi bi-geo-alt-fill text-muted"></i><span id="hotelAddress" class="text-muted">서울시 종로구 명동</span><br>
 							<table class="mt-3 mb-3">
@@ -141,7 +155,12 @@
 					</div>
 				</div>
 			</div>
+			<!-- 호텔 객체 끝 -->
+			
 		</div>
+		<!-- 호텔 리스트 끝 -->
+		
+		
 	</div>
 	
 	<!-- daterangepicker 기본설정, 날짜 기입 시작 -->
@@ -178,5 +197,12 @@
 		});
 	</script>
 	<!-- daterangepicker 기본설정, 날짜 기입 시작 -->
+	
+	<script>
+		$(document).on('click', ".hotel", function(){
+			const hotelId = $("input[name=hotelId]").val();
+			location.href="${contextPath}/hotelDetail.ho?hotelId="+hotelId;
+		});
+	</script>
 </body>
 </html>

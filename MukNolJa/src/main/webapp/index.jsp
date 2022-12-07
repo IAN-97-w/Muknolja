@@ -12,5 +12,6 @@
 	<a href="${ contextPath }/member.me">membedsewhtwhtjkWWWWsssssdss</a>
 	<a href="${ contextPath }/chat.ch">채팅</a>
 	<a href="${ contextPath }/hotelList.ho">호텔리스트</a>
+	<a href="${ contextPath }/insertRoom.ho">객실만들기</a>
 </body>
 </html>
